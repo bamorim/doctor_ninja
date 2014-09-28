@@ -1,20 +1,20 @@
-require_relative "../parsers"
+require_relative "./base"
 
-module Ninjadoc::Parsers::Run
+class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
   def self.applicable_to?(node)
     node.name == "r"
   end
 
-  def self.parse(node, yielder)
+  def parse
     tag = nil
-    if node.xpath(".//w:rPr/w:b").length > 0
+    if @node.xpath(".//w:rPr/w:b").length > 0
       tag = "b"
     end
 
     if(tag)
-      "<#{tag}>#{node.text}</#{tag}>"
+      "<#{tag}>#{@node.text}</#{tag}>"
     else
-      node.text
+      @node.text
     end
   end
 

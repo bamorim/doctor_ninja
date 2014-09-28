@@ -1,14 +1,12 @@
 require_relative "../parsers"
 
-module Ninjadoc::Parsers::Noop
+class Ninjadoc::Parsers::Noop < Ninjadoc::Parsers::Base
   def self.applicable_to?(node)
     return true
   end
 
-  def self.parse(node, yielder)
-    node.children.inject("") do |str,child|
-      str << yielder.call(child)
-    end
+  def parse
+    parse_children
   end
 
   Ninjadoc::Parsers.register self
