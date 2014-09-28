@@ -1,5 +1,6 @@
 require "ninjadoc/version"
+require "ninjadoc/document"
+require "ninjadoc/parser"
 
 module Ninjadoc
-  # Your code goes here...
 end

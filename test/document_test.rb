@@ -1,6 +1,6 @@
-require "minitest/autorun"
-require_relative "../lib/ninjadoc/document.rb"
-require_relative "../lib/ninjadoc/errors.rb"
+require_relative "./minitest_helper"
+require "ninjadoc/document"
+require "ninjadoc/errors"
 
 class DocumentTest < MiniTest::Test
   def test_valid_file
