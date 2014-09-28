@@ -6,7 +6,16 @@ module Ninjadoc::Parsers::Run
   end
 
   def self.parse(node, yielder)
-    node.text
+    tag = nil
+    if node.xpath(".//w:rPr/w:b").length > 0
+      tag = "b"
+    end
+
+    if(tag)
+      "<#{tag}>#{node.text}</#{tag}>"
+    else
+      node.text
+    end
   end
 
   Ninjadoc::Parsers.register self
