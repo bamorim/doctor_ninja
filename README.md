@@ -1,6 +1,18 @@
+Here be dragons! This is a WIP.
+
 # Ninjadoc
 
 Ninjadoc is a library to convert word documents into html files like a ninja.
+
+## TODO
+
+* Pass styleMap as an option(to choose what tag in paragraph rendering)
+* Add suport for images
+* Add general configurations:
+  1. style map
+  2. image inline(src=data)/as file
+  3. MathML/ansimath/latex
+* Finish the desired api `doc.to_html`
 
 ## Installation
 
