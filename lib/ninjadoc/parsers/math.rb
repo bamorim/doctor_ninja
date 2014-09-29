@@ -1,0 +1,31 @@
+require_relative "./base"
+
+class Ninjadoc::Parsers::Math < Ninjadoc::Parsers::Base
+  @@xsl = File.join(File.dirname(__FILE__),"omml2mml.xsl")
+  @@saxon = File.join(File.dirname(__FILE__),"../../../saxon9.jar")
+
+  def self.applicable_to?(node)
+    node.name == "oMath"
+  end
+
+  # Uses saxon to convert by now
+  def parse
+    doc = Nokogiri::XML(mml)
+    doc.remove_namespaces!
+    doc.root.set_attribute "xmlns", "http://www.w3.org/1998/Math/MathML"
+    doc.root.to_xml
+  end
+
+  def mml
+    doc = Nokogiri::XML("<root>#{@node.to_xml(encoding: "utf-8")}</root>")
+
+    @node.namespaces.each do |k,v|
+      doc.root.add_namespace k.split(":")[1], v
+    end
+
+    xslt = Nokogiri::XSLT(File.read(@@xsl))
+    xslt.transform(Nokogiri::XML(doc.to_xml)).to_xml
+  end
+
+  Ninjadoc::Parsers.register self
+end

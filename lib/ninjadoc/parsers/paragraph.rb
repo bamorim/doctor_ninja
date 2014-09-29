@@ -1,10 +1,10 @@
-require_relative "./base"
+require "ninjadoc/parsers/base"
 
 class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   @@style_map = {
-    "h1" => /^Tí?tulo$/,
-    "h2" => /^Subtí?tulo$/,
-    "p" => //
+    /^T[í|i]t(ulo|le)$/ => "h1",
+    /^Subt[í|i]t(ulo|le)$/ => "h2",
+    // => "p"
   }
 
   def self.applicable_to?(node)
@@ -12,17 +12,19 @@ class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   end
 
   def parse
-    style = begin 
-      @node.xpath("./w:pPr/w:pStyle").first.attributes["val"].value 
-    rescue
-      nil
-    end
-
-    tag = style == nil ? "p" : @@style_map.select do |k,v|
-      v =~ style
-    end.first[0]
-    
     "<#{tag}>#{parse_children}</#{tag}>"
+  end
+
+  def tag
+    style == nil ? "p" : @@style_map.select do |k,v|
+      k =~ style
+    end.first[1]
+  end
+
+  def style
+    @node.xpath("./w:pPr/w:pStyle").first.attributes["val"].value 
+  rescue
+    nil
   end
 
   Ninjadoc::Parsers.register self
