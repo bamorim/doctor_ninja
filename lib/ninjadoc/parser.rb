@@ -35,7 +35,7 @@ module Ninjadoc
       ENV["DEBUG"] == "all" || 
       (ENV["DEBUG"] == "missing" && parsers.length == 1) || 
       ENV["DEBUG"] == node.name ||
-      ENV["DEBUG"] == "#{node.namespace.prefix}:#{node.name}"
+      (node.namespace && ENV["DEBUG"] == "#{node.namespace.prefix}:#{node.name}")
     end
 
     def debug(node,b)

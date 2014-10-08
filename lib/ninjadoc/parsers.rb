@@ -15,6 +15,7 @@ end
 require "ninjadoc/parsers/run"
 require "ninjadoc/parsers/paragraph"
 require "ninjadoc/parsers/math"
+require "ninjadoc/parsers/text"
 
 #Noop should always be the last
 require "ninjadoc/parsers/noop"

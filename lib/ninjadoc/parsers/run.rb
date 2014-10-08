@@ -16,14 +16,6 @@ class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
     tags.inject(parse_children){|text,tag| "<#{tag}>#{text}</#{tag}>"}
   end
 
-  def parse_children
-    if @node.text?
-      @node.text
-    else
-      super
-    end
-  end
-
   def tags
     @node.xpath("./w:rPr").children
       .map{|n| n.name}
