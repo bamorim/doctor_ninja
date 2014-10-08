@@ -1,8 +1,29 @@
 #!/usr/bin/env ruby
 
+MATHJAX = <<-HTML
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+HTML
+
+PREFIX = <<-HTML
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    #{MATHJAX}
+  </head>
+  <body>
+HTML
+
+SUFFIX = <<-HTML
+  </body>
+</html>
+HTML
+
 require 'ninjadoc'
 doc = Ninjadoc::Document.new(ARGV[0])
 file = ARGV[1] ? File.open(ARGV[1],"w+") : STDOUT
-file.write(doc.to_html)
+file.write("#{PREFIX}#{doc.to_html}#{SUFFIX}")
 file.close
 doc.close
