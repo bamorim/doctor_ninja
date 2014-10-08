@@ -1,4 +1,5 @@
 require "zip"
+require "ninjadoc/parser"
 
 module Ninjadoc
   class Document
@@ -10,6 +11,14 @@ module Ninjadoc
 
     def document
       @file.read("word/document.xml")
+    end
+
+    def to_html
+      Ninjadoc::Parser.new(self).parse
+    end
+
+    def close
+      @file.close
     end
   end
 end

@@ -8,8 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = Ninjadoc::VERSION
   spec.authors       = ["Bernardo Amorim"]
   spec.email         = ["contato@bamorim.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Ninjadoc is a library to convert word documents into html files like a ninja.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

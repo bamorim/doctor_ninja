@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+require 'ninjadoc'
+doc = Ninjadoc::Document.new(ARGV[0])
+file = ARGV[1] ? File.open(ARGV[1],"w+") : STDOUT
+file.write(doc.to_html)
+file.close
+doc.close
