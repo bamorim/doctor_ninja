@@ -13,7 +13,15 @@ class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
       tag = "b"
     end
 
-    tags.inject(@node.text){|text,tag| "<#{tag}>#{text}</#{tag}>"}
+    tags.inject(parse_children){|text,tag| "<#{tag}>#{text}</#{tag}>"}
+  end
+
+  def parse_children
+    if @node.text?
+      @node.text
+    else
+      super
+    end
   end
 
   def tags
