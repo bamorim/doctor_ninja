@@ -6,6 +6,10 @@ class Ninjadoc::Parsers::BlipFill < Ninjadoc::Parsers::Base
   end
 
   def parse
-    @context.background_image = Magick::Image.from_blob(@document.relationships["rId5"]).first
+    @context.background_image = Magick::Image.from_blob(@document.relationships[rel_id]).first
+  end
+
+  def rel_id
+    node.xpath("./a:blip").attribute("r:embed").value
   end
 end
