@@ -12,7 +12,16 @@ class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   end
 
   def parse
-    "<#{tag}>#{parse_children}</#{tag}>"
+    @context[:has_text] = false
+    content = parse_children
+    attrs = {}
+    style = {}
+    style["text-align"] = "center" unless @context[:has_text]
+
+    attrs["style"] = style.map{|k,v| "#{k}:#{v};"}.join(" ") if style.length > 0
+
+    attrs = attrs.map{|k,v| " #{k}=\"#{v}\""}.join("")
+    "<#{tag}#{attrs}>#{content}</#{tag}>"
   end
 
   def tag
@@ -26,6 +35,4 @@ class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   rescue
     nil
   end
-
-  Ninjadoc::Parsers.register self
 end

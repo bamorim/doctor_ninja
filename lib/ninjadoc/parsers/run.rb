@@ -13,7 +13,7 @@ class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
       tag = "b"
     end
 
-    tags.inject(@node.text){|text,tag| "<#{tag}>#{text}</#{tag}>"}
+    tags.inject(parse_children){|text,tag| "<#{tag}>#{text}</#{tag}>"}
   end
 
   def tags
@@ -21,6 +21,4 @@ class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
       .map{|n| n.name}
       .select{|n| @@available_tags.include? n}
   end
-
-  Ninjadoc::Parsers.register self
 end
