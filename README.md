@@ -1,8 +1,8 @@
 Here be dragons! This is a WIP.
 
-# Ninjadoc
+# DoctorNinja
 
-Ninjadoc is a library to convert word documents into html files like a ninja.
+DoctorNinja is a library to convert word documents into html files like a ninja.
 
 ## Features
 
@@ -25,7 +25,7 @@ Ninjadoc is a library to convert word documents into html files like a ninja.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ninjadoc'
+gem 'doctor_ninja'
 ```
 
 And then execute:
@@ -34,24 +34,24 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ninjadoc
+    $ gem install doctor_ninja
 
 ## Usage
 
 To use it, you first load the .docx file and then use the to_html to get the html.
 
 ```ruby
-doc = Ninjadoc::Document.new('path_to_file.docx')
+doc = DoctorNinja::Document.new('path_to_file.docx')
 doc.to_html
 ```
 
 Alternativly, you can use our binary, that wraps inside a html boilerplate and adds MathJax to correcly render the MathML
 
-    $> ninjadoc document.docx document.html
+    $> doctor_ninja document.docx document.html
 
 ## Contributing
 
-1. Fork it ( https://github.com/bamorim/ninjadoc/fork )
+1. Fork it ( https://github.com/bamorim/doctor_ninja/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

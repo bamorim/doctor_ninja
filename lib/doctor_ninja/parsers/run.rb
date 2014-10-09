@@ -1,6 +1,6 @@
 require_relative "./base"
 
-class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::Run < DoctorNinja::Parsers::Base
   @@available_tags = ["b", "u", "i"]
 
   def self.applicable_to?(node)

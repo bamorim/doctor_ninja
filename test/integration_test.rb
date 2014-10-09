@@ -1,11 +1,11 @@
 # encoding: UTF-8
 require "minitest/autorun"
-require "ninjadoc"
+require "doctor_ninja"
 
 class IntegrationTest < MiniTest::Test
   def test_valid_file
-    @doc = Ninjadoc::Document.new("test/fixtures/limites.docx")
-    @parser = Ninjadoc::Parser.new(@doc)
+    @doc = DoctorNinja::Document.new("test/fixtures/limites.docx")
+    @parser = DoctorNinja::Parser.new(@doc)
     @result = @parser.parse
 
     assert_includes(@result, "<h1>Introdução aos Limites</h1>")

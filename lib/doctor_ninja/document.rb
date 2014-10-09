@@ -1,8 +1,8 @@
 require "zip"
-require "ninjadoc/parser"
-require "ninjadoc/relationships"
+require "doctor_ninja/parser"
+require "doctor_ninja/relationships"
 
-module Ninjadoc
+module DoctorNinja
   class Document
     def initialize file
       @file = Zip::File.new(file)
@@ -11,7 +11,7 @@ module Ninjadoc
     end
 
     def relationships
-      @relationships ||= Ninjadoc::Relationships.new(self)
+      @relationships ||= DoctorNinja::Relationships.new(self)
     end
 
     def read file
@@ -19,7 +19,7 @@ module Ninjadoc
     end
 
     def to_html
-      Ninjadoc::Parser.new(self).parse
+      DoctorNinja::Parser.new(self).parse
     end
 
     def close

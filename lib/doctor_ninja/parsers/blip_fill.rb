@@ -1,6 +1,6 @@
 require_relative "./base"
 
-class Ninjadoc::Parsers::BlipFill < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::BlipFill < DoctorNinja::Parsers::Base
   def self.applicable_to?(node)
     node.name == "blipFill"
   end

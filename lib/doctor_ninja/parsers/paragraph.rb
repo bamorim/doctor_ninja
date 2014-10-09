@@ -1,6 +1,6 @@
-require "ninjadoc/parsers/base"
+require "doctor_ninja/parsers/base"
 
-class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::Paragraph < DoctorNinja::Parsers::Base
   @@style_map = {
     /^T[í|i]?t(ulo|le)$/ => "h1",
     /^Subt[í|i]?t(ulo|le)$/ => "h2",

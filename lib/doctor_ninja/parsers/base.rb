@@ -1,4 +1,4 @@
-module Ninjadoc
+module DoctorNinja
   module Parsers
     class Base
       def self.applicable_to?(node)

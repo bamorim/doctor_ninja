@@ -1,7 +1,7 @@
 require "rvg/rvg"
 require "base64"
 
-class Ninjadoc::Parsers::Drawing < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::Drawing < DoctorNinja::Parsers::Base
   include Magick
 
   def self.applicable_to?(node)
@@ -9,8 +9,8 @@ class Ninjadoc::Parsers::Drawing < Ninjadoc::Parsers::Base
   end
 
   def parse
-    width = extent[:x]/Ninjadoc::EMU_PER_PIXEL
-    height = extent[:y]/Ninjadoc::EMU_PER_PIXEL
+    width = extent[:x]/DoctorNinja::EMU_PER_PIXEL
+    height = extent[:y]/DoctorNinja::EMU_PER_PIXEL
 
     rvg = RVG.new(width,height).viewbox(0,0,width,height) do |canvas|
       parse_children(canvas)

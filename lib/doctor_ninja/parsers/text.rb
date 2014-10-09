@@ -1,6 +1,6 @@
 require_relative "./base"
 
-class Ninjadoc::Parsers::Text < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::Text < DoctorNinja::Parsers::Base
   def self.applicable_to?(node)
     node.text?
   end

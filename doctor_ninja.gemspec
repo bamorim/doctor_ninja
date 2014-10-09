@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ninjadoc/version'
+require 'doctor_ninja/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ninjadoc"
-  spec.version       = Ninjadoc::VERSION
+  spec.name          = "doctor_ninja"
+  spec.version       = DoctorNinja::VERSION
   spec.authors       = ["Bernardo Amorim"]
   spec.email         = ["contato@bamorim.com"]
-  spec.summary       = %q{Ninjadoc is a library to convert word documents into html files like a ninja.}
-  spec.description   = %q{Ninjadoc is built by the Responde Aí Team (www.respondeai.com.br/time) in an attempt to fill our needs to convert docx files into html that also converts Word Forumlas into MathML.}
-  spec.homepage      = "https://github.com/bamorim/ninjadoc"
+  spec.summary       = %q{DoctorNinja is a library to convert word documents into html files like a ninja.}
+  spec.description   = %q{DoctorNinja is built by the Responde Aí Team (www.respondeai.com.br/time) in an attempt to fill our needs to convert docx files into html that also converts Word Forumlas into MathML.}
+  spec.homepage      = "https://github.com/bamorim/doctor_ninja"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")

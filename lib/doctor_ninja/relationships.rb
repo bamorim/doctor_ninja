@@ -1,4 +1,4 @@
-module Ninjadoc
+module DoctorNinja
   class Relationships
     def initialize(doc)
       @doc = doc

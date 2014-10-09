@@ -1,6 +1,6 @@
 require_relative "./base"
 
-class Ninjadoc::Parsers::Math < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::Math < DoctorNinja::Parsers::Base
   @@xsl = File.join(File.dirname(__FILE__),"omml2mml.xsl")
 
   def self.applicable_to?(node)

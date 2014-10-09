@@ -21,8 +21,8 @@ SUFFIX = <<-HTML
 </html>
 HTML
 
-require 'ninjadoc'
-doc = Ninjadoc::Document.new(ARGV[0])
+require 'doctor_ninja'
+doc = DoctorNinja::Document.new(ARGV[0])
 file = ARGV[1] ? File.open(ARGV[1],"w+") : STDOUT
 file.write("#{PREFIX}#{doc.to_html}#{SUFFIX}")
 file.close

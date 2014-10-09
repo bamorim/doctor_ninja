@@ -1,6 +1,6 @@
 require_relative "./base"
 
-class Ninjadoc::Parsers::MathPara < Ninjadoc::Parsers::Base
+class DoctorNinja::Parsers::MathPara < DoctorNinja::Parsers::Base
   def self.applicable_to?(node)
     node.name == "oMathPara"
   end

@@ -1,9 +1,9 @@
 require 'nokogiri'
 Dir[File.dirname(__FILE__) + '/parsers/*.rb'].each {|file| require file }
 
-module Ninjadoc
+module DoctorNinja
   class Parser
-    class Noop < Ninjadoc::Parsers::Base
+    class Noop < DoctorNinja::Parsers::Base
       def self.applicable_to?(node)
         return true
       end
@@ -37,7 +37,7 @@ module Ninjadoc
     end
 
     def parsers
-      Ninjadoc::Parsers.constants.map{|c| Ninjadoc::Parsers.const_get(c)}+[Noop]
+      DoctorNinja::Parsers.constants.map{|c| DoctorNinja::Parsers.const_get(c)}+[Noop]
     end
 
     def debug?(node,parsers)
