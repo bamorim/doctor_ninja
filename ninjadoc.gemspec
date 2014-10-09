@@ -19,11 +19,10 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.7"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "minitest"
-  spec.add_development_dependency "minitest-reporters"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "minitest", "~> 5.4"
+  spec.add_development_dependency "minitest-reporters", "~> 1.0"
 
-  spec.add_dependency "nokogiri"
-  spec.add_dependency "rubyzip"
-  spec.add_dependency "rmagick"
+  spec.add_dependency "nokogiri", "~> 1.6"
+  spec.add_dependency "rubyzip", "~> 1.1"
+  spec.add_dependency "rmagick", "~> 2.13"
 end
