@@ -2,8 +2,8 @@ require "ninjadoc/parsers/base"
 
 class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   @@style_map = {
-    /^T[í|i]t(ulo|le)$/ => "h1",
-    /^Subt[í|i]t(ulo|le)$/ => "h2",
+    /^T[í|i]?t(ulo|le)$/ => "h1",
+    /^Subt[í|i]?t(ulo|le)$/ => "h2",
     // => "p"
   }
 

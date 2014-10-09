@@ -18,6 +18,7 @@ private
   end
 
   def transform
+    return unless src_rect
     h = {
       "l" => src_rect["l"].to_i*@image.columns/100000,
       "t" => src_rect["t"].to_i*@image.rows/100000,

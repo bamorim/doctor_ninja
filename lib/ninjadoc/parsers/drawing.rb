@@ -16,8 +16,8 @@ class Ninjadoc::Parsers::Drawing < Ninjadoc::Parsers::Base
       parse_children(canvas)
     end
 
-    format = "jpeg"
-    base64 = Base64.encode64 rvg.draw.to_blob { self.format = "jpeg" }
+    format = "png"
+    base64 = Base64.encode64 rvg.draw.to_blob { self.format = format }
 
     "<img src=\"data:image/#{format};base64,#{base64}\"/>"
   end
