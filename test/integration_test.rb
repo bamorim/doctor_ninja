@@ -14,7 +14,7 @@ class IntegrationTest < MiniTest::Test
     assert_includes(@result, "<u>Mas a verdade é")
     
     math = <<-MATH
-      <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
         <mfrac>
           <mrow>
             <mn>1</mn>
