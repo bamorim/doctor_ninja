@@ -40,8 +40,10 @@ Or install it yourself as:
 
 To use it, you first load the .docx file and then use the to_html to get the html.
 
-    doc = Ninjadoc::Document.new('path_to_file.docx')
-    doc.to_html
+```ruby
+doc = Ninjadoc::Document.new('path_to_file.docx')
+doc.to_html
+```
 
 Alternativly, you can use our binary, that wraps inside a html boilerplate and adds MathJax to correcly render the MathML
 
