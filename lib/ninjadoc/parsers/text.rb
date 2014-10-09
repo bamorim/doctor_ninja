@@ -6,6 +6,7 @@ class Ninjadoc::Parsers::Text < Ninjadoc::Parsers::Base
   end
 
   def parse
+    @context[:has_text] = true
     @node.text
   end
 end
