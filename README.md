@@ -4,15 +4,21 @@ Here be dragons! This is a WIP.
 
 Ninjadoc is a library to convert word documents into html files like a ninja.
 
+## Features
+
+* Convert images and applies the following transformations
+  * Crop
+* Convert Microsoft's Math to MathML
+* Accepts bold, italic and underline
+* Sets text-align to center when there are only non-text children on paragrpahs ( This is for our own usecase, we should probably give an interface to configure it, maybe passing a lambda )
+
 ## TODO
 
 * Pass styleMap as an option(to choose what tag in paragraph rendering)
-* Add suport for images
 * Add general configurations:
   1. style map
   2. image inline(src=data)/as file
   3. MathML/ansimath/latex
-* Finish the desired api `doc.to_html`
 
 ## Installation
 
@@ -36,6 +42,10 @@ To use it, you first load the .docx file and then use the to_html to get the htm
 
     doc = Ninjadoc::Document.new('path_to_file.docx')
     doc.to_html
+
+Alternativly, you can use our binary, that wraps inside a html boilerplate and adds MathJax to correcly render the MathML
+
+    $> ninjadoc document.docx document.html
 
 ## Contributing
 
