@@ -1,6 +1,6 @@
 Here be dragons! This is a WIP.
 
-# DoctorNinja [![Build Status](https://travis-ci.org/bamorim/doctor_ninja.svg?branch=master)](https://travis-ci.org/bamorim/doctor_ninja) [![Gem Version](https://badge.fury.io/rb/doctor_ninja.svg)](http://badge.fury.io/rb/doctor_ninja) [License](http://img.shields.io/badge/license-MIT-lightgrey.svg)
+# DoctorNinja [![Build Status](https://travis-ci.org/bamorim/doctor_ninja.svg?branch=master)](https://travis-ci.org/bamorim/doctor_ninja) [![Gem Version](https://badge.fury.io/rb/doctor_ninja.svg)](http://badge.fury.io/rb/doctor_ninja) [!License](http://img.shields.io/badge/license-MIT-lightgrey.svg)
 
 DoctorNinja is a library to convert word documents into html files like a ninja.
 
