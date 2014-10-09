@@ -8,6 +8,4 @@ class Ninjadoc::Parsers::Text < Ninjadoc::Parsers::Base
   def parse
     @node.text
   end
-
-  Ninjadoc::Parsers.register self
 end

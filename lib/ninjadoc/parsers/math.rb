@@ -2,7 +2,6 @@ require_relative "./base"
 
 class Ninjadoc::Parsers::Math < Ninjadoc::Parsers::Base
   @@xsl = File.join(File.dirname(__FILE__),"omml2mml.xsl")
-  @@saxon = File.join(File.dirname(__FILE__),"../../../saxon9.jar")
 
   def self.applicable_to?(node)
     node.name == "oMath"
@@ -26,6 +25,4 @@ class Ninjadoc::Parsers::Math < Ninjadoc::Parsers::Base
     xslt = Nokogiri::XSLT(File.read(@@xsl))
     xslt.transform(Nokogiri::XML(doc.to_xml)).to_xml
   end
-
-  Ninjadoc::Parsers.register self
 end

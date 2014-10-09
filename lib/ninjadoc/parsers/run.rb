@@ -21,6 +21,4 @@ class Ninjadoc::Parsers::Run < Ninjadoc::Parsers::Base
       .map{|n| n.name}
       .select{|n| @@available_tags.include? n}
   end
-
-  Ninjadoc::Parsers.register self
 end

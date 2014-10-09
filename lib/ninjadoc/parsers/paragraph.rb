@@ -26,6 +26,4 @@ class Ninjadoc::Parsers::Paragraph < Ninjadoc::Parsers::Base
   rescue
     nil
   end
-
-  Ninjadoc::Parsers.register self
 end

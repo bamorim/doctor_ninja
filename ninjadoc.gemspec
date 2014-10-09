@@ -22,9 +22,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest"
   spec.add_development_dependency "minitest-reporters"
   spec.add_development_dependency "pry"
-  spec.add_development_dependency "webrick"
-  spec.add_development_dependency "green_onion"
 
   spec.add_dependency "nokogiri"
   spec.add_dependency "rubyzip"
+  spec.add_dependency "rmagick"
 end

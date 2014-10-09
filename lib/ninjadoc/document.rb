@@ -1,5 +1,6 @@
 require "zip"
 require "ninjadoc/parser"
+require "ninjadoc/relationships"
 
 module Ninjadoc
   class Document
@@ -9,8 +10,12 @@ module Ninjadoc
       raise InvalidDocumentError.new
     end
 
-    def document
-      @file.read("word/document.xml")
+    def relationships
+      @relationships ||= Ninjadoc::Relationships.new(self)
+    end
+
+    def read file
+      @file.read(file)
     end
 
     def to_html
