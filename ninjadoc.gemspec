@@ -9,7 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Bernardo Amorim"]
   spec.email         = ["contato@bamorim.com"]
   spec.summary       = %q{Ninjadoc is a library to convert word documents into html files like a ninja.}
-  spec.homepage      = ""
+  spec.description   = %q{Ninjadoc is built by the Responde Aí Team (www.respondeai.com.br/time) in an attempt to fill our needs to convert docx files into html that also converts Word Forumlas into MathML.}
+  spec.homepage      = "https://github.com/bamorim/ninjadoc"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
