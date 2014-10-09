@@ -4,6 +4,10 @@ Here be dragons! This is a WIP.
 
 DoctorNinja is a library to convert word documents into html files like a ninja.
 
+## Why DoctorNinja?
+
+Well, the name is simple, **Doctor** comes from **Doc** (.docx) and **Ninja** comes from our first MVP (Ninja das Dúvidas).
+
 ## Features
 
 * Convert images and applies the following transformations
