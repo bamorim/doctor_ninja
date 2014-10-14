@@ -4,9 +4,7 @@ require "doctor_ninja"
 
 class IntegrationTest < MiniTest::Test
   def test_valid_file
-    @doc = DoctorNinja::Document.new("test/fixtures/limites.docx")
-    @parser = DoctorNinja::Parser.new(@doc)
-    @result = @parser.parse
+    @result = parse_file "test/fixtures/limites.docx"
 
     assert_includes(@result, "<h1>Introdução aos Limites</h1>")
     assert_includes(@result, "<h2>Introdução</h2>")
@@ -28,6 +26,6 @@ class IntegrationTest < MiniTest::Test
       </math>
     MATH
 
-    assert_includes(@result.gsub(/[\n ]/,""), math.gsub(/[\n ]/,""))
+    assert_includes strip_spaces(@result), strip_spaces(math)
   end
 end
