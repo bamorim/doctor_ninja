@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "pry", "~>0.10"
   spec.add_development_dependency "phashion", "~>1.1"
 
-  spec.add_dependency "nokogiri", "~> 1.4.0"
+  spec.add_dependency "nokogiri", "~> 1.4"
   spec.add_dependency "rubyzip", "~> 1.1"
   spec.add_dependency "rmagick", "~> 2.13"
 end
