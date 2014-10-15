@@ -8,7 +8,7 @@ class DoctorNinja::Parsers::Paragraph < DoctorNinja::Parsers::Base
   }
 
   def self.applicable_to?(node)
-    node.name == "p"
+    node.name == "p" && node.xpath("./w:pPr/w:numPr").length == 0
   end
 
   def parse

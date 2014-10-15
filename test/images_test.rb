@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require_relative "./minitest_helper"
 require "minitest/autorun"
 require "doctor_ninja"
 require "phashion"
@@ -14,10 +15,8 @@ class ImagesTest < MiniTest::Test
   private
 
   def test_image docx_path, html_path
-    doc = DoctorNinja::Document.new(docx_path)
-    expected = Nokogiri::HTML(File.read(html_path))
-    parser = DoctorNinja::Parser.new(doc)
-    result = Nokogiri::HTML(parser.parse)
+    expected = Nokogiri::HTML File.read html_path
+    result = Nokogiri::HTML parse_file docx_path
 
     with_image_from result do |result_img|
       with_image_from expected do |expected_img|
