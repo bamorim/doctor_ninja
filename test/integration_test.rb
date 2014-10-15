@@ -1,5 +1,5 @@
 # encoding: UTF-8
-require "minitest/autorun"
+require_relative "./minitest_helper"
 require "doctor_ninja"
 
 class IntegrationTest < MiniTest::Test

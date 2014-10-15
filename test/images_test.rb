@@ -1,4 +1,5 @@
 # encoding: UTF-8
+require_relative "./minitest_helper"
 require "minitest/autorun"
 require "doctor_ninja"
 require "phashion"
