@@ -22,9 +22,12 @@ class IntegrationTest < MiniTest::Test
           </mrow>
         </mfrac>
         <mo>=</mo>
-        <mi>∞</mi>
-      </math>
     MATH
+    
+    # We are not testing the following:
+    #    <mi>∞</mi>
+    #  </math>
+    # because some versions of nokogiri converts it to &#x221E;
 
     assert_includes strip_spaces(@result), strip_spaces(math)
   end
