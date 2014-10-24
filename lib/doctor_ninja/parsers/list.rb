@@ -10,6 +10,19 @@ class DoctorNinja::Parsers::List < DoctorNinja::Parsers::Base
     lvl = get_pr "w:ilvl", @node
     style = @document.numbering.style(lvl, num_id)
     tag = style == "bullet" ? "ul" : "ol"
+    type = case style
+    when "lowerRoman"
+      "i"
+    when "upperRoman"
+      "I"
+    when "lowerLetter"
+      "a"
+    when "upperLetter"
+      "A"
+    else
+      ""
+    end
+    typeAttr = type == "" ? "" : "type='#{type}'"
 
     num_id_query = ".//w:numId/@w:val=\"#{num_id}\""
 
@@ -19,7 +32,7 @@ class DoctorNinja::Parsers::List < DoctorNinja::Parsers::Base
     prefix = ""
     # Add <ul> if is start of new list
     if previous.length == 0 || get_pr("w:ilvl", previous) < lvl
-      prefix += "<#{tag}>"
+      prefix += "<#{tag}#{typeAttr}>"
     end
 
     prefix += "<li>"

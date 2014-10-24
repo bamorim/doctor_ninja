@@ -33,4 +33,14 @@ class ListsTest < MiniTest::Test
     HTML
     assert_includes strip_spaces(result), strip_spaces(bullet2)
   end
+
+  def test_ordered_list_types
+    result = parse_file "test/fixtures/ordered_list_types.docx"
+    result = strip_spaces(result)
+    assert_includes result, "<ol><li>Decimal</li></ol>"
+    assert_includes result, "<oltype='i'><li>LowerRoman</li></ol>"
+    assert_includes result, "<oltype='I'><li>UpperRoman</li></ol>"
+    assert_includes result, "<oltype='a'><li>LowerAlpha</li></ol>"
+    assert_includes result, "<oltype='A'><li>UpperAlpha</li></ol>"
+  end
 end
