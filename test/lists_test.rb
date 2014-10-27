@@ -43,4 +43,11 @@ class ListsTest < MiniTest::Test
     assert_includes result, "<ol type='a'><li>Lower Alpha</li></ol>"
     assert_includes result, "<ol type='A'><li>Upper Alpha</li></ol>"
   end
+
+  def test_list_ending_in_indented_level
+    result = parse_file "test/fixtures/list_ending_in_indented_level.docx"
+    result = strip_spaces(result)
+    assert_includes result, "<ul><li>First<ul><li>Second</li></ul></li></ul>"
+    refute_includes result, "</ul></li></ul></li>"
+  end
 end
