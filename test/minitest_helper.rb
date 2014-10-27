@@ -11,6 +11,6 @@ class MiniTest::Test
   end
 
   def strip_spaces str
-    str.gsub(/[\n ]/,"")
+    str.gsub(/[\n ]+/," ").gsub("> ",">").gsub(" <","<")
   end
 end

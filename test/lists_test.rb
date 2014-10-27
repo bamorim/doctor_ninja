@@ -38,9 +38,9 @@ class ListsTest < MiniTest::Test
     result = parse_file "test/fixtures/ordered_list_types.docx"
     result = strip_spaces(result)
     assert_includes result, "<ol><li>Decimal</li></ol>"
-    assert_includes result, "<oltype='i'><li>LowerRoman</li></ol>"
-    assert_includes result, "<oltype='I'><li>UpperRoman</li></ol>"
-    assert_includes result, "<oltype='a'><li>LowerAlpha</li></ol>"
-    assert_includes result, "<oltype='A'><li>UpperAlpha</li></ol>"
+    assert_includes result, "<ol type='i'><li>Lower Roman</li></ol>"
+    assert_includes result, "<ol type='I'><li>Upper Roman</li></ol>"
+    assert_includes result, "<ol type='a'><li>Lower Alpha</li></ol>"
+    assert_includes result, "<ol type='A'><li>Upper Alpha</li></ol>"
   end
 end

@@ -22,7 +22,7 @@ class DoctorNinja::Parsers::List < DoctorNinja::Parsers::Base
     else
       ""
     end
-    typeAttr = type == "" ? "" : "type='#{type}'"
+    typeAttr = type == "" ? "" : " type='#{type}'"
 
     num_id_query = ".//w:numId/@w:val=\"#{num_id}\""
 
