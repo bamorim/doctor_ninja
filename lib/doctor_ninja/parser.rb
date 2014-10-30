@@ -12,6 +12,13 @@ module DoctorNinja
     def initialize(doc)
       @docx = doc
       @xmldoc = Nokogiri::XML @docx.read "word/document.xml"
+      
+      # This will remove "vanished" word runs.
+      # Maybe this sould be treated separatly, but as
+      # we use xslt for math transformation this is the only
+      # way I can think to solve it. Preprocessing it...
+      @xmldoc.xpath("//w:vanish/ancestor::m:r[1]").remove
+      @xmldoc.xpath("//w:vanish/ancestor::w:r[1]").remove
     end
 
     def parse
