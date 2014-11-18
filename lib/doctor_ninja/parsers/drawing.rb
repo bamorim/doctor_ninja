@@ -13,7 +13,9 @@ class DoctorNinja::Parsers::Drawing < DoctorNinja::Parsers::Base
     height = extent[:y]/DoctorNinja::EMU_PER_PIXEL
 
     rvg = RVG.new(width,height).viewbox(0,0,width,height) do |canvas|
-      parse_children(canvas)
+      context = @context.dup
+      context[:canvas] = canvas
+      parse_children(context)
     end
 
     format = "png"

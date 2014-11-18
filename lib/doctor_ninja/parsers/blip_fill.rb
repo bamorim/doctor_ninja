@@ -8,7 +8,7 @@ class DoctorNinja::Parsers::BlipFill < DoctorNinja::Parsers::Base
   def parse
     @image = Magick::Image.from_blob(@document.relationships[rel_id]).first
     transform
-    @context.background_image = @image
+    @context[:canvas].background_image = @image
   end
 
 private
