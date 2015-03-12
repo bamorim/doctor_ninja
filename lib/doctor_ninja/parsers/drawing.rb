@@ -1,4 +1,5 @@
 require "base64"
+require "mini_magick"
 
 class DoctorNinja::Parsers::Drawing < DoctorNinja::Parsers::Base
   def self.applicable_to?(node)

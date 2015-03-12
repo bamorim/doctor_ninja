@@ -1,5 +1,6 @@
 require "zip"
 require "doctor_ninja/parser"
+require "doctor_ninja/errors"
 require "doctor_ninja/relationships"
 require "doctor_ninja/numbering"
 
