@@ -1,4 +1,3 @@
-require "rvg/rvg"
 require "base64"
 
 class DoctorNinja::Parsers::Drawing < DoctorNinja::Parsers::Base
