@@ -1,3 +1,4 @@
+require "doctor_ninja/utils"
 require "doctor_ninja/version"
 require "doctor_ninja/document"
 require "doctor_ninja/parser"
