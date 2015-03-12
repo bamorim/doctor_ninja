@@ -9,6 +9,15 @@ module DoctorNinja
       @doc.read "word/#{path id}"
     end
 
+    def with id
+      file = Tempfile.new(id)
+      file.write(read(id))
+      file.close
+      yield file.path
+    ensure
+      file.unlink
+    end
+
     alias_method :[], :read
 
     def path id

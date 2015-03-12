@@ -1,4 +1,5 @@
 require_relative "./base"
+require "mini_magick"
 
 class DoctorNinja::Parsers::BlipFill < DoctorNinja::Parsers::Base
   def self.applicable_to?(node)
@@ -6,9 +7,17 @@ class DoctorNinja::Parsers::BlipFill < DoctorNinja::Parsers::Base
   end
 
   def parse
-    @image = Magick::Image.from_blob(@document.relationships[rel_id]).first
-    transform
-    @context[:canvas].background_image = @image
+    outfile = Tempfile.new("output.png")
+    outfile.close
+    @document.relationships.with(rel_id) do |path|
+      @image = MiniMagick::Image.open(path)
+      @width, @height = @image.dimensions
+      transform
+      @image.write(outfile.path)
+      @context[:image_blob] = File.read(outfile)
+    end
+  ensure
+    outfile.unlink
   end
 
 private
@@ -19,18 +28,17 @@ private
 
   def transform
     return unless src_rect
-    h = {
-      "l" => src_rect["l"].to_i*@image.columns/100000,
-      "t" => src_rect["t"].to_i*@image.rows/100000,
-      "r" => src_rect["r"].to_i*@image.columns/100000,
-      "b" => src_rect["b"].to_i*@image.rows/100000
-    }
-    @image = @image.crop(
-      h["l"],
-      h["t"],
-      @image.columns - h["l"]-h["r"] ,
-      @image.rows-h["b"]-h["t"]
-    )
+    l = src_rect["l"].to_i*@width/100000
+    t = src_rect["t"].to_i*@height/100000
+    r = src_rect["r"].to_i*@width/100000
+    b = src_rect["b"].to_i*@height/100000
+    w = @width-l-r
+    h = @height-t-b
+    result = "#{w}x#{h}!+#{l}+#{t}"
+    @image.combine_options do |c|
+      c.gravity 'NorthEast'
+      c.crop(result)
+    end
   end
 
   def src_rect
