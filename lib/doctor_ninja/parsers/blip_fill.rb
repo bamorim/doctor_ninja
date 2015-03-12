@@ -10,17 +10,36 @@ class DoctorNinja::Parsers::BlipFill < DoctorNinja::Parsers::Base
     outfile = Tempfile.new("output.png")
     outfile.close
     @document.relationships.with(rel_id) do |path|
-      @image = MiniMagick::Image.open(path)
-      @width, @height = @image.dimensions
-      transform
-      @image.write(outfile.path)
-      @context[:image_blob] = File.read(outfile)
+      begin
+        process outfile, path
+      rescue MiniMagick::Invalid => e
+        raise e unless system("which unoconv")
+        unoconv_and_process outfile, path
+      end
     end
   ensure
     outfile.unlink
   end
 
 private
+
+  def unoconv_and_process outfile, original
+    FileUtils.cp(original,"#{original}.emf")
+    png = Tempfile.new("unoconv.png")
+    png.close
+    system("unoconv -o #{png.path} -f png #{original}.emf")
+    process(outfile, png.path)
+  ensure
+    png.unlink
+  end
+
+  def process outfile, path
+    @image = MiniMagick::Image.open(path)
+    @width, @height = @image.dimensions
+    transform
+    @image.write(outfile.path)
+    @context[:image_blob] = File.read(outfile)
+  end
 
   def rel_id
     @node.xpath("./a:blip", "a" => xmlns_a).attribute("embed").value
