@@ -1,3 +1,4 @@
+require_relative "./base"
 require "rvg/rvg"
 require "base64"
 

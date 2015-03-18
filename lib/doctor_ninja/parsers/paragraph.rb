@@ -1,4 +1,4 @@
-require "doctor_ninja/parsers/base"
+require_relative "./base"
 
 class DoctorNinja::Parsers::Paragraph < DoctorNinja::Parsers::Base
   @@style_map = {
